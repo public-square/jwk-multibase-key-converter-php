@@ -1,0 +1,47 @@
+{
+    "name": "public-square/jwk-multibase-key-converter",
+    "type": "library",
+    "description": "Enables conversion of multibase strings to/from JWK, limited to secp256k1 and P-384. Additionally, has support for did:key method spec.",
+    "keywords":["secp256k1", "multibase", "multicodec", "public-square", "did:key", "jwk", "psqr", "nist", "p-384", "secg", "secp384r1"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ology Newswire, Inc",
+            "email": "protocol@vpsqr.com",
+            "homepage": "https://vpsqr.com/",
+            "role": "Maintainer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PublicSquare\\JWKMBConverter\\": "src/",
+            "PublicSquare\\JWKMBConverter\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit tests",
+        "ecs": "vendor/bin/ecs check",
+        "ecsfix": "vendor/bin/ecs check --fix",
+        "phpstan": "vendor/bin/phpstan analyse -l 7 src"
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-gmp": "*",
+        "public-square/jwt-framework-schnorr": "^0.1.0",
+        "yocto/yoclib-multibase": "^1.1",
+        "simplito/elliptic-php": "^1.0"
+    },
+    "require-dev": {
+        "captainhook/captainhook": "^5.11",
+        "captainhook/plugin-composer": "^5.3",
+        "phpstan/phpstan": "^1.9",
+        "phpunit/phpunit": "^9",
+        "symplify/easy-coding-standard": "^11.1"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "captainhook/plugin-composer": true
+        }
+    }
+}
