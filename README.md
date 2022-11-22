@@ -1,10 +1,10 @@
 JWK Multibase Key Converter
 =================
 
-[![Latest Stable Version](https://poser.pugx.org/public-square/jwk-multibase-key-converter/v/stable.png)](https://packagist.org/packages/public-square/jwk-multibase-key-converter)
-[![Total Downloads](https://poser.pugx.org/public-square/jwk-multibase-key-converter/downloads.png)](https://packagist.org/packages/public-square/jwk-multibase-key-converter)
-[![Latest Unstable Version](https://poser.pugx.org/public-square/jwk-multibase-key-converter/v/unstable.png)](https://packagist.org/packages/public-square/jwk-multibase-key-converter)
-[![License](https://poser.pugx.org/public-square/jwk-multibase-key-converter/license.png)](https://packagist.org/packages/public-square/jwk-multibase-key-converter)
+[![Latest Stable Version](https://poser.pugx.org/public-square/jwk-multibase-key-converter-php/v/stable.png)](https://packagist.org/packages/public-square/jwk-multibase-key-converter-php)
+[![Total Downloads](https://poser.pugx.org/public-square/jwk-multibase-key-converter-php/downloads.png)](https://packagist.org/packages/public-square/jwk-multibase-key-converter-php)
+[![Latest Unstable Version](https://poser.pugx.org/public-square/jwk-multibase-key-converter-php/v/unstable.png)](https://packagist.org/packages/public-square/jwk-multibase-key-converter-php)
+[![License](https://poser.pugx.org/public-square/jwk-multibase-key-converter-php/license.png)](https://packagist.org/packages/public-square/jwk-multibase-key-converter-php)
 
 ## Information
 
@@ -30,7 +30,7 @@ Currently, the only support curves are as follows:
 
 You can install this library via Composer :
 
-`composer require public-square/jwk-multibase-key-converter-php`
+`composer require public-square/jwk-multibase-key-converter-php-php`
 
 ## Contribute
 
