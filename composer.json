@@ -1,5 +1,5 @@
 {
-    "name": "public-square/jwk-multibase-key-converter",
+    "name": "public-square/jwk-multibase-key-converter-php",
     "type": "library",
     "description": "Enables conversion of multibase strings to/from JWK, limited to secp256k1 and P-384. Additionally, has support for did:key method spec.",
     "keywords":["secp256k1", "multibase", "multicodec", "public-square", "did key", "jwk", "psqr", "nist", "p-384", "secg", "secp384r1"],

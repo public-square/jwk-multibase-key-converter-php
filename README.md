@@ -30,7 +30,7 @@ Currently, the only support curves are as follows:
 
 You can install this library via Composer :
 
-`composer require public-square/jwk-multibase-key-converter`
+`composer require public-square/jwk-multibase-key-converter-php`
 
 ## Contribute
 
