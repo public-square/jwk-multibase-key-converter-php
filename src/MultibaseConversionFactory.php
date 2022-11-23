@@ -109,18 +109,11 @@ class MultibaseConversionFactory
         $type = $jwk->get('crv');
 
         // set multicodec hex value based on type of curve
-        $multicodecHexValue = null;
-
-        switch ($type) {
-            case self::SECP256K1_JWK_CURVE:
-                $multicodecHexValue = self::SECP256K1_MULTICODEC_HEX_VALUE;
-                break;
-            case self::P384_JWK_CURVE:
-                $multicodecHexValue = self::P384_MULTICODEC_HEX_VALUE;
-                break;
-            default:
-                throw new \Exception('Invalid Curve Type');
-        }
+        $multicodecHexValue = match ($type) {
+            self::SECP256K1_JWK_CURVE => self::SECP256K1_MULTICODEC_HEX_VALUE,
+            self::P384_JWK_CURVE      => self::P384_MULTICODEC_HEX_VALUE,
+            default                   => throw new \Exception('Invalid Curve Type'),
+        };
 
         // verify if Y is even or odd
         $isYEven = gmp_cmp(gmp_mod(gmp_init($y, 16), 2), 0) === 0;
