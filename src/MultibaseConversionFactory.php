@@ -18,6 +18,8 @@ class MultibaseConversionFactory
     public const P384_MULTICODEC_HEX_VALUE      = '8124';
     public const SIMPLITO_P384_FORM             = 'p384';
     public const SIMPLITO_SECP256K1_FORM        = 'secp256k1';
+    public const JOSE_P384_FORM                 = 'ES384';
+    public const JOSE_SEC256K1_FORM             = 'ES256K';
     public const P384_JWK_CURVE                 = 'P-384';
     public const SECP256K1_JWK_CURVE            = 'secp256k1';
     public const Y_EVEN_KEY_PREFIX              = '02';
@@ -32,10 +34,15 @@ class MultibaseConversionFactory
      */
     public function mbaseToJwk(string $mbase, string $alg): JWK | Exception
     {
-        // validate simplito type
-        if (in_array($alg, [self::SIMPLITO_SECP256K1_FORM, self::SIMPLITO_P384_FORM]) === false) {
-            throw new Exception('Invalid algorithm type.');
-        }
+        // accepts p384, p-384, ES384 for secp384r1 and secp256k1, ES256K for secp256k1
+        $alg = match ($alg) {
+            self::SECP256K1_JWK_CURVE,
+            self::JOSE_SEC256K1_FORM => self::SIMPLITO_SECP256K1_FORM,
+            self::SIMPLITO_P384_FORM,
+            self::P384_JWK_CURVE,
+            self::JOSE_P384_FORM => self::SIMPLITO_P384_FORM,
+            default              => throw new \Exception('Invalid algorithm type'),
+        };
 
         // if mbase begins with did:key:, throw error
         if (str_starts_with('did:key:', $mbase) === true) {

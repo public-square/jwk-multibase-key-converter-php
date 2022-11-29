@@ -21,69 +21,16 @@ Currently, this libary only supports the following curves:
 
 In order for key generation to work on Windows machines, this [Installation](https://www.php.net/manual/en/openssl.installation.php) documentation must be done correctly, specifically regarding `openssl.cnf`.
 
-## Generating a JWK
-```php
-<?php
-
-require __DIR__ . './../vendor/autoload.php';
-
-use Jose\Component\KeyManagement\JWKFactory;
-use PublicSquare\JWKMBConverter\MultibaseConversionFactory;
-
-// This generates a secp256k1 private key (kty, crv, d, x, y)
-$jwk = JWKFactory::createECKey(MultibaseConversionFactory::SECP256K1_JWK_CURVE);
-```
-
-## Converting a JWK to a Multibase Key or did:key
-```php
-<?php
-
-require __DIR__ . './../vendor/autoload.php';
-
-use Jose\Component\KeyManagement\JWKFactory;
-use PublicSquare\JWKMBConverter\MultibaseConversionFactory;
-use PublicSquare\JWKMBConverter\DidKeyConversionFactory;
-
-$multibaseConversionFactory = new MultibaseConversionFactory();
-$didKeyConversionFactory    = new DidKeyConversionFactory();
-
-// This generates a secp256k1 private key (kty, crv, d, x, y)
-$jwk = JWKFactory::createECKey(MultibaseConversionFactory::SECP256K1_JWK_CURVE);
-
-$mbaseKey = $multibaseConversionFactory->jwkToMbase($jwk);
-// zQ3s...
-
-$didKey   = $didKeyConversionFactory->jwkToDidKey($jwk);
-// did:key:zQ3s[... same as above]
-```
-
-## Converting a Multibase Key or did:key to a Public JWK
-```php
-<?php
-
-require __DIR__ . './../vendor/autoload.php';
-
-use Jose\Component\KeyManagement\JWKFactory;
-use PublicSquare\JWKMBConverter\MultibaseConversionFactory;
-use PublicSquare\JWKMBConverter\DidKeyConversionFactory;
-
-$multibaseConversionFactory = new MultibaseConversionFactory();
-$didKeyConversionFactory    = new DidKeyConversionFactory();
-
-// This generates a secp256k1 private key (kty, crv, d, x, y)
-$jwk = JWKFactory::createECKey(MultibaseConversionFactory::SECP256K1_JWK_CURVE);
-
-$mbaseKey = $multibaseConversionFactory->jwkToMbase($jwk);
-$didKey   = $didKeyConversionFactory->jwkToDidKey($jwk);
-
-// uses SIMPLITO EC Standards for Algorithm Names, returns JWT Framework Public JWK
-$mbaseToJwk  = $multibaseConversionFactory->mbaseToJwk($mbaseKey, MultibaseConversionFactory::SIMPLITO_SECP256K1_FORM);
-// returns the above JWK without the private key
-
-// Constants are located in MultibaseConversionFactory, returns JWT Framework Public JWK
-$didKeyToJwk = $didKeyConversionFactory->didKeyToJwk($didKey, MultibaseConversionFactory::SIMPLITO_SECP256K1_FORM);
-// returns the above JWK without the private key
-```
+## How It Works
+- Generation
+  - [Generating a Public Key](docs/examples/jwk_generation.md)
+- Multibase Conversion
+  - [Converting a Multibase Key to a Public JWK](docs/examples/multibase_conversion.md)
+- **did:key** Conversion
+  - [Converting a did:key to a Public JWK](docs/examples/didkey_conversion.md)
+- JWK Conversion
+  - [Converting a Public JWK to a Multibase Key](docs/examples/jwk_to_mbase.md)
+  - [Converting a Public JWK to a did:key](docs/examples/jwk_to_didkey.md)
 
 ## Requirements
 
