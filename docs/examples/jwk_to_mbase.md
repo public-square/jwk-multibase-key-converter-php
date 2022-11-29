@@ -1,5 +1,4 @@
 ## Converting a Public JWK to a Multibase Key
-___
 
 To allow for conversions from JWK to a Multibase Key, we need to include the `MultibaseConversionFactory`.
 

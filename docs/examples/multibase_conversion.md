@@ -1,5 +1,4 @@
 ## Converting a Multibase Key to a Public JWK
-___
 
 The following code shows the complete roundabout for generation, PubKey to multibase key, and multibase key back to Public JWK.
 

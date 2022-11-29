@@ -1,5 +1,4 @@
 ## Converting a did:key to a Public JWK
-___
 
 The following code shows the complete roundabout for generation, PubKey to **did:key**, and did:key back to Public JWK.
 

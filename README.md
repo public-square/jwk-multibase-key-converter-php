@@ -22,13 +22,13 @@ Currently, this libary only supports the following curves:
 In order for key generation to work on Windows machines, this [Installation](https://www.php.net/manual/en/openssl.installation.php) documentation must be done correctly, specifically regarding `openssl.cnf`.
 
 ## How It Works
-- Generation
+- Public JWK Generation
   - [Generating a Public Key](docs/examples/jwk_generation.md)
 - Multibase Conversion
   - [Converting a Multibase Key to a Public JWK](docs/examples/multibase_conversion.md)
 - **did:key** Conversion
   - [Converting a did:key to a Public JWK](docs/examples/didkey_conversion.md)
-- JWK Conversion
+- Public JWK Conversion
   - [Converting a Public JWK to a Multibase Key](docs/examples/jwk_to_mbase.md)
   - [Converting a Public JWK to a did:key](docs/examples/jwk_to_didkey.md)
 

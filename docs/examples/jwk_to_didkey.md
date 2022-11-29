@@ -1,5 +1,4 @@
 ## Converting a Public JWK to a did:key
-___
 
 To allow for conversions from JWK to a **did:key**, we need to include the `DidKeyConversionFactory`.
 

@@ -1,5 +1,4 @@
 ## Generating a Public JWK
-___
 
 The following code helps generate a Public JWK to use with Multibase or **did:key** conversions.
 
