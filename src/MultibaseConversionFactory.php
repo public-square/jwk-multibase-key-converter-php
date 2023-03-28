@@ -75,8 +75,17 @@ class MultibaseConversionFactory
             throw new \Exception($e->getMessage());
         }
 
-        $xBinary = (string) hex2bin($key->getPublic()->getX()->toString(16));
-        $yBinary = (string) hex2bin($key->getPublic()->getY()->toString(16));
+        // get hex length of n value
+        $hexLength = mb_strlen($ec->n->toString(16), '8bit');
+
+        // use hex length to correctly pad x and y values, unpadded values will return incorrect JWK
+        $xBinary = (string) hex2bin(
+            $key->getPublic()->getX()->toString(16, $hexLength)
+        );
+
+        $yBinary = (string) hex2bin(
+            $key->getPublic()->getY()->toString(16, $hexLength)
+        );
 
         // JWT Framework requires values to be Base64 URL Safe
         $jwk = new JWK([
